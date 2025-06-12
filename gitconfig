@@ -1,0 +1,26 @@
+# This is Git's per-user configuration file.
+[alias]
+	co = checkout
+	ci = commit
+	amend = commit --amend --no-edit
+	st = status
+	prev = co HEAD^
+	conf = config --global -e
+	unstash = stash pop
+	sha = rev-parse HEAD
+
+	lga = lg --all
+	llga = llg --all
+	lllga = lllg --all
+
+	lg = lgbase --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+	llg = lgbase --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+	lllg = lgbase --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+
+	lg1 = log --graph --abbrev-commit --decorate HEAD -n 1 --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+
+	lgbase = log --graph --abbrev-commit --decorate HEAD -n 30 --branches
+	lgmaster = log --graph --abbrev-commit --decorate HEAD origin/master -n 30 --branches
+	lghead = log --graph --abbrev-commit --decorate HEAD -n 30
+	lgh = lghead --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+	lgm = lgmaster --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
