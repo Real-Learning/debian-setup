@@ -35,6 +35,9 @@ sudo apt update
 sudo apt install -y curl git tmux vim vim-doc vim-gtk3 vim-scripts xclip gh
 # Install UV - Python package and project manager. So far it is not yet available via Debian official apt packages (TODO should get there by 2025-10-01)
 curl -LsSf https://astral.sh/uv/install.sh | sh
+# Install Discord
+wget -O /tmp/discord-installer.deb "https://discordapp.com/api/download/stable?platform=linux&format=deb"
+sudo dpkg -i /tmp/discord-installer.deb
 
 # Install and configure GNOME extensions
 gnome-browser-connector gnome-extensions://dash-to-dock%40micxgx.gmail.com?action=install
@@ -81,7 +84,7 @@ mkdir -p ~/.vim/colors
   rm -rf desertink
 )
 
-# Download the rest of the repo with config files and ssetup links to those
+# Download the rest of the repo with config files and setup links to those
 COMMIT="${1:-main}"
 echo "$COMMIT"
 DESTINATION="$HOME/.local/debian-setup"
