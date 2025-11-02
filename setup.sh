@@ -30,9 +30,12 @@ sudo sed -i 's/^deb cdrom.*$//' /etc/apt/sources.list
   sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg &&
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 )
+# Add Microsoft repository so `apt` knows where to pull VSCode from
+wget -O /dev/stdout https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg >/dev/null
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main' | sudo tee /etc/apt/sources.list.d/vscode.list
 # update package version cache and install everything
 sudo apt update
-sudo apt install -y curl git tmux vim vim-doc vim-gtk3 vim-scripts xclip gh
+sudo apt install -y curl git tmux vim vim-doc vim-gtk3 vim-scripts xclip gh code
 # Install UV - Python package and project manager. So far it is not yet available via Debian official apt packages (TODO should get there by 2025-10-01)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 # Install Discord
