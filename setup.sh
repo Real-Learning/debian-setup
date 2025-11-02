@@ -35,7 +35,7 @@ wget -O /dev/stdout https://packages.microsoft.com/keys/microsoft.asc | gpg --de
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main' | sudo tee /etc/apt/sources.list.d/vscode.list
 # update package version cache and install everything
 sudo apt update
-sudo apt install -y curl git tmux vim vim-doc vim-gtk3 vim-scripts xclip gh code
+sudo apt install -y curl git tmux vim vim-doc vim-gtk3 vim-scripts xclip gh code python3-tk
 # Install UV - Python package and project manager. So far it is not yet available via Debian official apt packages (TODO should get there by 2025-10-01)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 # Install Discord
